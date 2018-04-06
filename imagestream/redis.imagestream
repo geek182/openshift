@@ -1,0 +1,65 @@
+apiVersion: v1
+kind: ImageStream
+metadata:
+  annotations:
+    openshift.io/display-name: Redis
+    openshift.io/image.dockerRepositoryCheck: 2018-03-29T13:17:16Z
+  creationTimestamp: 2018-03-29T13:17:06Z
+  generation: 2
+  name: redis
+  namespace: openshift
+  resourceVersion: "898"
+  selfLink: /oapi/v1/namespaces/openshift/imagestreams/redis
+  uid: 7a626648-3353-11e8-bb0f-02e58f5ddc66
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+  - annotations:
+      description: Provides a Redis 3.2 database on CentOS 7. For more information
+        about using this database image, including OpenShift considerations, see https://github.com/sclorg/redis-container/tree/master/3.2/README.md.
+      iconClass: icon-redis
+      openshift.io/display-name: Redis 3.2
+      openshift.io/provider-display-name: Red Hat, Inc.
+      tags: redis
+      version: "3.2"
+    from:
+      kind: DockerImage
+      name: centos/redis-32-centos7:latest
+    generation: 2
+    importPolicy: {}
+    name: "3.2"
+    referencePolicy:
+      type: Source
+  - annotations:
+      description: |-
+        Provides a Redis database on CentOS 7. For more information about using this database image, including OpenShift considerations, see https://github.com/sclorg/redis-container/tree/master/3.2/README.md.
+
+        WARNING: By selecting this tag, your application will automatically update to use the latest version of Redis available on OpenShift, including major versions updates.
+      iconClass: icon-redis
+      openshift.io/display-name: Redis (Latest)
+      openshift.io/provider-display-name: Red Hat, Inc.
+      tags: redis
+    from:
+      kind: ImageStreamTag
+      name: "3.2"
+    generation: 1
+    importPolicy: {}
+    name: latest
+    referencePolicy:
+      type: Source
+status:
+  dockerImageRepository: docker-registry.default.svc:5000/openshift/redis
+  tags:
+  - items:
+    - created: 2018-03-29T13:17:16Z
+      dockerImageReference: centos/redis-32-centos7@sha256:587951cecc1a9c679da0bd01ff422180425d270d841b9371ed85255790f7cdf4
+      generation: 2
+      image: sha256:587951cecc1a9c679da0bd01ff422180425d270d841b9371ed85255790f7cdf4
+    tag: latest
+  - items:
+    - created: 2018-03-29T13:17:16Z
+      dockerImageReference: centos/redis-32-centos7@sha256:587951cecc1a9c679da0bd01ff422180425d270d841b9371ed85255790f7cdf4
+      generation: 2
+      image: sha256:587951cecc1a9c679da0bd01ff422180425d270d841b9371ed85255790f7cdf4
+    tag: "3.2"

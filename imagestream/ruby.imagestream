@@ -1,0 +1,141 @@
+apiVersion: v1
+kind: ImageStream
+metadata:
+  annotations:
+    openshift.io/display-name: Ruby
+    openshift.io/image.dockerRepositoryCheck: 2018-03-29T13:17:15Z
+  creationTimestamp: 2018-03-29T13:17:06Z
+  generation: 2
+  name: ruby
+  namespace: openshift
+  resourceVersion: "885"
+  selfLink: /oapi/v1/namespaces/openshift/imagestreams/ruby
+  uid: 7a58edc5-3353-11e8-bb0f-02e58f5ddc66
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+  - annotations:
+      description: Build and run Ruby 2.0 applications on CentOS 7. For more information
+        about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-ruby-container/tree/master/2.0/README.md.
+      iconClass: icon-ruby
+      openshift.io/display-name: Ruby 2.0
+      openshift.io/provider-display-name: Red Hat, Inc.
+      sampleRepo: https://github.com/openshift/ruby-ex.git
+      supports: ruby:2.0,ruby
+      tags: hidden,builder,ruby
+      version: "2.0"
+    from:
+      kind: DockerImage
+      name: openshift/ruby-20-centos7:latest
+    generation: 2
+    importPolicy: {}
+    name: "2.0"
+    referencePolicy:
+      type: Source
+  - annotations:
+      description: Build and run Ruby 2.2 applications on CentOS 7. For more information
+        about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-ruby-container/tree/master/2.2/README.md.
+      iconClass: icon-ruby
+      openshift.io/display-name: Ruby 2.2
+      openshift.io/provider-display-name: Red Hat, Inc.
+      sampleRepo: https://github.com/openshift/ruby-ex.git
+      supports: ruby:2.2,ruby
+      tags: builder,ruby
+      version: "2.2"
+    from:
+      kind: DockerImage
+      name: centos/ruby-22-centos7:latest
+    generation: 2
+    importPolicy: {}
+    name: "2.2"
+    referencePolicy:
+      type: Source
+  - annotations:
+      description: Build and run Ruby 2.3 applications on CentOS 7. For more information
+        about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-ruby-container/blob/master/2.3/README.md.
+      iconClass: icon-ruby
+      openshift.io/display-name: Ruby 2.3
+      openshift.io/provider-display-name: Red Hat, Inc.
+      sampleRepo: https://github.com/openshift/ruby-ex.git
+      supports: ruby:2.3,ruby
+      tags: builder,ruby
+      version: "2.3"
+    from:
+      kind: DockerImage
+      name: centos/ruby-23-centos7:latest
+    generation: 2
+    importPolicy: {}
+    name: "2.3"
+    referencePolicy:
+      type: Source
+  - annotations:
+      description: Build and run Ruby 2.4 applications on CentOS 7. For more information
+        about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-ruby-container/blob/master/2.4/README.md.
+      iconClass: icon-ruby
+      openshift.io/display-name: Ruby 2.4
+      openshift.io/provider-display-name: Red Hat, Inc.
+      sampleRepo: https://github.com/openshift/ruby-ex.git
+      supports: ruby:2.4,ruby
+      tags: builder,ruby
+      version: "2.4"
+    from:
+      kind: DockerImage
+      name: centos/ruby-24-centos7:latest
+    generation: 2
+    importPolicy: {}
+    name: "2.4"
+    referencePolicy:
+      type: Source
+  - annotations:
+      description: |-
+        Build and run Ruby applications on CentOS 7. For more information about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-ruby-container/tree/master/2.3/README.md.
+
+        WARNING: By selecting this tag, your application will automatically update to use the latest version of Ruby available on OpenShift, including major versions updates.
+      iconClass: icon-ruby
+      openshift.io/display-name: Ruby (Latest)
+      openshift.io/provider-display-name: Red Hat, Inc.
+      sampleRepo: https://github.com/openshift/ruby-ex.git
+      supports: ruby
+      tags: builder,ruby
+    from:
+      kind: ImageStreamTag
+      name: "2.4"
+    generation: 1
+    importPolicy: {}
+    name: latest
+    referencePolicy:
+      type: Source
+status:
+  dockerImageRepository: docker-registry.default.svc:5000/openshift/ruby
+  tags:
+  - items:
+    - created: 2018-03-29T13:17:15Z
+      dockerImageReference: centos/ruby-24-centos7@sha256:c8569bdcde1862b8b5a7e79ca9fbf123bdaf6028b428d71224fb78ce0e542966
+      generation: 2
+      image: sha256:c8569bdcde1862b8b5a7e79ca9fbf123bdaf6028b428d71224fb78ce0e542966
+    tag: latest
+  - items:
+    - created: 2018-03-29T13:17:15Z
+      dockerImageReference: centos/ruby-24-centos7@sha256:c8569bdcde1862b8b5a7e79ca9fbf123bdaf6028b428d71224fb78ce0e542966
+      generation: 2
+      image: sha256:c8569bdcde1862b8b5a7e79ca9fbf123bdaf6028b428d71224fb78ce0e542966
+    tag: "2.4"
+  - items:
+    - created: 2018-03-29T13:17:15Z
+      dockerImageReference: centos/ruby-23-centos7@sha256:49154d3ad7bcd5e6224a78d74feb7319e2ee28d97cb7031d3c7e503bb6f10f13
+      generation: 2
+      image: sha256:49154d3ad7bcd5e6224a78d74feb7319e2ee28d97cb7031d3c7e503bb6f10f13
+    tag: "2.3"
+  - items:
+    - created: 2018-03-29T13:17:15Z
+      dockerImageReference: centos/ruby-22-centos7@sha256:7633481f3bfe2b4bb173b8210bc419d38969896f4d44ddeb706432e4118b6816
+      generation: 2
+      image: sha256:7633481f3bfe2b4bb173b8210bc419d38969896f4d44ddeb706432e4118b6816
+    tag: "2.2"
+  - items:
+    - created: 2018-03-29T13:17:15Z
+      dockerImageReference: openshift/ruby-20-centos7@sha256:751a3cd1905914389fe568c25b3d5367cd705a0e4f81970a361f670ce891baf7
+      generation: 2
+      image: sha256:751a3cd1905914389fe568c25b3d5367cd705a0e4f81970a361f670ce891baf7
+    tag: "2.0"

@@ -1,0 +1,65 @@
+apiVersion: v1
+kind: ImageStream
+metadata:
+  annotations:
+    openshift.io/display-name: MariaDB
+    openshift.io/image.dockerRepositoryCheck: 2018-03-29T13:17:15Z
+  creationTimestamp: 2018-03-29T13:17:06Z
+  generation: 2
+  name: mariadb
+  namespace: openshift
+  resourceVersion: "887"
+  selfLink: /oapi/v1/namespaces/openshift/imagestreams/mariadb
+  uid: 7a5f99f6-3353-11e8-bb0f-02e58f5ddc66
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+  - annotations:
+      description: Provides a MariaDB 10.1 database on CentOS 7. For more information
+        about using this database image, including OpenShift considerations, see https://github.com/sclorg/mariadb-container/tree/master/10.1/README.md.
+      iconClass: icon-mariadb
+      openshift.io/display-name: MariaDB 10.1
+      openshift.io/provider-display-name: Red Hat, Inc.
+      tags: mariadb
+      version: "10.1"
+    from:
+      kind: DockerImage
+      name: centos/mariadb-101-centos7:latest
+    generation: 2
+    importPolicy: {}
+    name: "10.1"
+    referencePolicy:
+      type: Source
+  - annotations:
+      description: |-
+        Provides a MariaDB database on CentOS 7. For more information about using this database image, including OpenShift considerations, see https://github.com/sclorg/mariadb-container/tree/master/10.1/README.md.
+
+        WARNING: By selecting this tag, your application will automatically update to use the latest version of MariaDB available on OpenShift, including major versions updates.
+      iconClass: icon-mariadb
+      openshift.io/display-name: MariaDB (Latest)
+      openshift.io/provider-display-name: Red Hat, Inc.
+      tags: mariadb
+    from:
+      kind: ImageStreamTag
+      name: "10.1"
+    generation: 1
+    importPolicy: {}
+    name: latest
+    referencePolicy:
+      type: Source
+status:
+  dockerImageRepository: docker-registry.default.svc:5000/openshift/mariadb
+  tags:
+  - items:
+    - created: 2018-03-29T13:17:15Z
+      dockerImageReference: centos/mariadb-101-centos7@sha256:fc9e8b618681bd127c1433c148db2f26f2cb69cbe5d7159851583dd06342ef1b
+      generation: 2
+      image: sha256:fc9e8b618681bd127c1433c148db2f26f2cb69cbe5d7159851583dd06342ef1b
+    tag: latest
+  - items:
+    - created: 2018-03-29T13:17:15Z
+      dockerImageReference: centos/mariadb-101-centos7@sha256:fc9e8b618681bd127c1433c148db2f26f2cb69cbe5d7159851583dd06342ef1b
+      generation: 2
+      image: sha256:fc9e8b618681bd127c1433c148db2f26f2cb69cbe5d7159851583dd06342ef1b
+    tag: "10.1"

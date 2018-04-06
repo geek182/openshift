@@ -1,0 +1,109 @@
+apiVersion: v1
+kind: ImageStream
+metadata:
+  annotations:
+    openshift.io/display-name: MySQL
+    openshift.io/image.dockerRepositoryCheck: 2018-03-29T13:17:17Z
+  creationTimestamp: 2018-03-29T13:17:06Z
+  generation: 2
+  name: mysql
+  namespace: openshift
+  resourceVersion: "904"
+  selfLink: /oapi/v1/namespaces/openshift/imagestreams/mysql
+  uid: 7a5eaf55-3353-11e8-bb0f-02e58f5ddc66
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+  - annotations:
+      description: Provides a MySQL 5.5 database on CentOS 7. For more information
+        about using this database image, including OpenShift considerations, see https://github.com/sclorg/mysql-container/tree/master/5.5/README.md.
+      iconClass: icon-mysql-database
+      openshift.io/display-name: MySQL 5.5
+      openshift.io/provider-display-name: Red Hat, Inc.
+      tags: hidden,mysql
+      version: "5.5"
+    from:
+      kind: DockerImage
+      name: openshift/mysql-55-centos7:latest
+    generation: 2
+    importPolicy: {}
+    name: "5.5"
+    referencePolicy:
+      type: Source
+  - annotations:
+      description: Provides a MySQL 5.6 database on CentOS 7. For more information
+        about using this database image, including OpenShift considerations, see https://github.com/sclorg/mysql-container/tree/master/5.6/README.md.
+      iconClass: icon-mysql-database
+      openshift.io/display-name: MySQL 5.6
+      openshift.io/provider-display-name: Red Hat, Inc.
+      tags: mysql
+      version: "5.6"
+    from:
+      kind: DockerImage
+      name: centos/mysql-56-centos7:latest
+    generation: 2
+    importPolicy: {}
+    name: "5.6"
+    referencePolicy:
+      type: Source
+  - annotations:
+      description: Provides a MySQL 5.7 database on CentOS 7. For more information
+        about using this database image, including OpenShift considerations, see https://github.com/sclorg/mysql-container/tree/master/5.7/README.md.
+      iconClass: icon-mysql-database
+      openshift.io/display-name: MySQL 5.7
+      openshift.io/provider-display-name: Red Hat, Inc.
+      tags: mysql
+      version: "5.7"
+    from:
+      kind: DockerImage
+      name: centos/mysql-57-centos7:latest
+    generation: 2
+    importPolicy: {}
+    name: "5.7"
+    referencePolicy:
+      type: Source
+  - annotations:
+      description: |-
+        Provides a MySQL database on CentOS 7. For more information about using this database image, including OpenShift considerations, see https://github.com/sclorg/mysql-container/tree/master/5.6/README.md.
+
+        WARNING: By selecting this tag, your application will automatically update to use the latest version of MySQL available on OpenShift, including major versions updates.
+      iconClass: icon-mysql-database
+      openshift.io/display-name: MySQL (Latest)
+      openshift.io/provider-display-name: Red Hat, Inc.
+      tags: mysql
+    from:
+      kind: ImageStreamTag
+      name: "5.7"
+    generation: 1
+    importPolicy: {}
+    name: latest
+    referencePolicy:
+      type: Source
+status:
+  dockerImageRepository: docker-registry.default.svc:5000/openshift/mysql
+  tags:
+  - items:
+    - created: 2018-03-29T13:17:17Z
+      dockerImageReference: centos/mysql-57-centos7@sha256:d5632b029709619bc6982ad41defe20d2f61d1a0f757b77a6fa6638d3b9b7994
+      generation: 2
+      image: sha256:d5632b029709619bc6982ad41defe20d2f61d1a0f757b77a6fa6638d3b9b7994
+    tag: latest
+  - items:
+    - created: 2018-03-29T13:17:17Z
+      dockerImageReference: centos/mysql-57-centos7@sha256:d5632b029709619bc6982ad41defe20d2f61d1a0f757b77a6fa6638d3b9b7994
+      generation: 2
+      image: sha256:d5632b029709619bc6982ad41defe20d2f61d1a0f757b77a6fa6638d3b9b7994
+    tag: "5.7"
+  - items:
+    - created: 2018-03-29T13:17:17Z
+      dockerImageReference: centos/mysql-56-centos7@sha256:f57d37c8bbea429dc2f07d379b22cf1b4a13a56ed03dd3e226c98033fb8adabe
+      generation: 2
+      image: sha256:f57d37c8bbea429dc2f07d379b22cf1b4a13a56ed03dd3e226c98033fb8adabe
+    tag: "5.6"
+  - items:
+    - created: 2018-03-29T13:17:17Z
+      dockerImageReference: openshift/mysql-55-centos7@sha256:7cd33ccc63b8005810aedee0444472cc84c3e3c38fe9cd147edb964e712a1068
+      generation: 2
+      image: sha256:7cd33ccc63b8005810aedee0444472cc84c3e3c38fe9cd147edb964e712a1068
+    tag: "5.5"

@@ -1,0 +1,117 @@
+apiVersion: v1
+kind: ImageStream
+metadata:
+  annotations:
+    openshift.io/display-name: Perl
+    openshift.io/image.dockerRepositoryCheck: 2018-03-29T13:17:12Z
+  creationTimestamp: 2018-03-29T13:17:06Z
+  generation: 2
+  name: perl
+  namespace: openshift
+  resourceVersion: "875"
+  selfLink: /oapi/v1/namespaces/openshift/imagestreams/perl
+  uid: 7a5adb18-3353-11e8-bb0f-02e58f5ddc66
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+  - annotations:
+      description: Build and run Perl 5.16 applications on CentOS 7. For more information
+        about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-perl-container/blob/master/5.16/README.md.
+      iconClass: icon-perl
+      openshift.io/display-name: Perl 5.16
+      openshift.io/provider-display-name: Red Hat, Inc.
+      sampleRepo: https://github.com/openshift/dancer-ex.git
+      supports: perl:5.16,perl
+      tags: hidden,builder,perl
+      version: "5.16"
+    from:
+      kind: DockerImage
+      name: openshift/perl-516-centos7:latest
+    generation: 2
+    importPolicy: {}
+    name: "5.16"
+    referencePolicy:
+      type: Source
+  - annotations:
+      description: Build and run Perl 5.20 applications on CentOS 7. For more information
+        about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-perl-container/blob/master/5.20/README.md.
+      iconClass: icon-perl
+      openshift.io/display-name: Perl 5.20
+      openshift.io/provider-display-name: Red Hat, Inc.
+      sampleRepo: https://github.com/openshift/dancer-ex.git
+      supports: perl:5.20,perl
+      tags: builder,perl
+      version: "5.20"
+    from:
+      kind: DockerImage
+      name: centos/perl-520-centos7:latest
+    generation: 2
+    importPolicy: {}
+    name: "5.20"
+    referencePolicy:
+      type: Source
+  - annotations:
+      description: Build and run Perl 5.24 applications on CentOS 7. For more information
+        about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-perl-container/blob/master/5.24/README.md.
+      iconClass: icon-perl
+      openshift.io/display-name: Perl 5.24
+      openshift.io/provider-display-name: Red Hat, Inc.
+      sampleRepo: https://github.com/openshift/dancer-ex.git
+      supports: perl:5.24,perl
+      tags: builder,perl
+      version: "5.24"
+    from:
+      kind: DockerImage
+      name: centos/perl-524-centos7:latest
+    generation: 2
+    importPolicy: {}
+    name: "5.24"
+    referencePolicy:
+      type: Source
+  - annotations:
+      description: |-
+        Build and run Perl applications on CentOS 7. For more information about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-perl-container/blob/master/5.20/README.md.
+
+        WARNING: By selecting this tag, your application will automatically update to use the latest version of Perl available on OpenShift, including major versions updates.
+      iconClass: icon-perl
+      openshift.io/display-name: Perl (Latest)
+      openshift.io/provider-display-name: Red Hat, Inc.
+      sampleRepo: https://github.com/openshift/dancer-ex.git
+      supports: perl
+      tags: builder,perl
+    from:
+      kind: ImageStreamTag
+      name: "5.24"
+    generation: 1
+    importPolicy: {}
+    name: latest
+    referencePolicy:
+      type: Source
+status:
+  dockerImageRepository: docker-registry.default.svc:5000/openshift/perl
+  tags:
+  - items:
+    - created: 2018-03-29T13:17:12Z
+      dockerImageReference: centos/perl-524-centos7@sha256:41102ae6d9b6390713f1e5e34ef70d09906fbc007ee000a17d3daeb3cf7a146f
+      generation: 2
+      image: sha256:41102ae6d9b6390713f1e5e34ef70d09906fbc007ee000a17d3daeb3cf7a146f
+    tag: latest
+  - items:
+    - created: 2018-03-29T13:17:12Z
+      dockerImageReference: centos/perl-524-centos7@sha256:41102ae6d9b6390713f1e5e34ef70d09906fbc007ee000a17d3daeb3cf7a146f
+      generation: 2
+      image: sha256:41102ae6d9b6390713f1e5e34ef70d09906fbc007ee000a17d3daeb3cf7a146f
+    tag: "5.24"
+  - items:
+    - created: 2018-03-29T13:17:12Z
+      dockerImageReference: centos/perl-520-centos7@sha256:d970fb10442c2f7259d757173d4e03565b65a295261e10766f15f01bec011f04
+      generation: 2
+      image: sha256:d970fb10442c2f7259d757173d4e03565b65a295261e10766f15f01bec011f04
+    tag: "5.20"
+  - items:
+    - created: 2018-03-29T13:17:12Z
+      dockerImageReference: openshift/perl-516-centos7@sha256:e2d681b6e3b7e8eedf2fbb288c3e6587db6fd2b7a4aa55dd3a8ab032094dfa8c
+      generation: 2
+      image: sha256:e2d681b6e3b7e8eedf2fbb288c3e6587db6fd2b7a4aa55dd3a8ab032094dfa8c
+    tag: "5.16"

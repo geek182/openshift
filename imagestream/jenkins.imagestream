@@ -1,0 +1,89 @@
+apiVersion: v1
+kind: ImageStream
+metadata:
+  annotations:
+    openshift.io/display-name: Jenkins
+    openshift.io/image.dockerRepositoryCheck: 2018-03-29T13:17:19Z
+  creationTimestamp: 2018-03-29T13:17:06Z
+  generation: 2
+  name: jenkins
+  namespace: openshift
+  resourceVersion: "949"
+  selfLink: /oapi/v1/namespaces/openshift/imagestreams/jenkins
+  uid: 7a634892-3353-11e8-bb0f-02e58f5ddc66
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+  - annotations:
+      description: Provides a Jenkins 1.X server on CentOS 7. For more information
+        about using this container image, including OpenShift considerations, see
+        https://github.com/openshift/jenkins/blob/master/README.md.
+      iconClass: icon-jenkins
+      openshift.io/display-name: Jenkins 1.X
+      openshift.io/provider-display-name: Red Hat, Inc.
+      tags: hidden,jenkins
+      version: 1.x
+    from:
+      kind: DockerImage
+      name: openshift/jenkins-1-centos7:latest
+    generation: 2
+    importPolicy: {}
+    name: "1"
+    referencePolicy:
+      type: Source
+  - annotations:
+      description: Provides a Jenkins v2.x server on CentOS 7. For more information
+        about using this container image, including OpenShift considerations, see
+        https://github.com/openshift/jenkins/blob/master/README.md.
+      iconClass: icon-jenkins
+      openshift.io/display-name: Jenkins 2.X
+      openshift.io/provider-display-name: Red Hat, Inc.
+      tags: jenkins
+      version: 2.x
+    from:
+      kind: DockerImage
+      name: openshift/jenkins-2-centos7:latest
+    generation: 2
+    importPolicy: {}
+    name: "2"
+    referencePolicy:
+      type: Source
+  - annotations:
+      description: |-
+        Provides a Jenkins server on CentOS 7. For more information about using this container image, including OpenShift considerations, see https://github.com/openshift/jenkins/blob/master/README.md.
+
+        WARNING: By selecting this tag, your application will automatically update to use the latest version of Jenkins available on OpenShift, including major versions updates.
+      iconClass: icon-jenkins
+      openshift.io/display-name: Jenkins (Latest)
+      openshift.io/provider-display-name: Red Hat, Inc.
+      tags: jenkins
+    from:
+      kind: ImageStreamTag
+      name: "2"
+    generation: 1
+    importPolicy: {}
+    name: latest
+    referencePolicy:
+      type: Source
+status:
+  dockerImageRepository: docker-registry.default.svc:5000/openshift/jenkins
+  tags:
+  - items:
+    - created: 2018-03-29T13:17:19Z
+      dockerImageReference: openshift/jenkins-2-centos7@sha256:479d1df7a402d57ece188a90f23cd08accbeca1cfc053810f4a7f478c8ca3155
+      generation: 2
+      image: sha256:479d1df7a402d57ece188a90f23cd08accbeca1cfc053810f4a7f478c8ca3155
+    tag: latest
+  - items:
+    - created: 2018-03-29T13:17:19Z
+      dockerImageReference: openshift/jenkins-1-centos7@sha256:7cf1c8ef7baa7a750d5c36e82d7f4a21a300c37aaa24baff593de0031ae080f0
+      generation: 2
+      image: sha256:7cf1c8ef7baa7a750d5c36e82d7f4a21a300c37aaa24baff593de0031ae080f0
+    tag: "1"
+  - items:
+    - created: 2018-03-29T13:17:19Z
+      dockerImageReference: openshift/jenkins-2-centos7@sha256:479d1df7a402d57ece188a90f23cd08accbeca1cfc053810f4a7f478c8ca3155
+      generation: 2
+      image: sha256:479d1df7a402d57ece188a90f23cd08accbeca1cfc053810f4a7f478c8ca3155
+    tag: "2"

@@ -1,0 +1,70 @@
+apiVersion: v1
+kind: ImageStream
+metadata:
+  annotations:
+    openshift.io/display-name: Apache HTTP Server (httpd)
+    openshift.io/image.dockerRepositoryCheck: 2018-03-29T13:17:09Z
+  creationTimestamp: 2018-03-29T13:17:06Z
+  generation: 2
+  name: httpd
+  namespace: openshift
+  resourceVersion: "847"
+  selfLink: /oapi/v1/namespaces/openshift/imagestreams/httpd
+  uid: 7a57c216-3353-11e8-bb0f-02e58f5ddc66
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+  - annotations:
+      description: Build and serve static content via Apache HTTP Server (httpd) 2.4
+        on CentOS 7. For more information about using this builder image, including
+        OpenShift considerations, see https://github.com/sclorg/httpd-container/blob/master/2.4/README.md.
+      iconClass: icon-apache
+      openshift.io/display-name: Apache HTTP Server 2.4
+      openshift.io/provider-display-name: Red Hat, Inc.
+      sampleRepo: https://github.com/openshift/httpd-ex.git
+      supports: httpd
+      tags: builder,httpd
+      version: "2.4"
+    from:
+      kind: DockerImage
+      name: centos/httpd-24-centos7:latest
+    generation: 2
+    importPolicy: {}
+    name: "2.4"
+    referencePolicy:
+      type: Source
+  - annotations:
+      description: |-
+        Build and serve static content via Apache HTTP Server (httpd) on CentOS 7. For more information about using this builder image, including OpenShift considerations, see https://github.com/sclorg/httpd-container/blob/master/2.4/README.md.
+
+        WARNING: By selecting this tag, your application will automatically update to use the latest version of Httpd available on OpenShift, including major versions updates.
+      iconClass: icon-apache
+      openshift.io/display-name: Apache HTTP Server (Latest)
+      openshift.io/provider-display-name: Red Hat, Inc.
+      sampleRepo: https://github.com/openshift/httpd-ex.git
+      supports: httpd
+      tags: builder,httpd
+    from:
+      kind: ImageStreamTag
+      name: "2.4"
+    generation: 1
+    importPolicy: {}
+    name: latest
+    referencePolicy:
+      type: Source
+status:
+  dockerImageRepository: docker-registry.default.svc:5000/openshift/httpd
+  tags:
+  - items:
+    - created: 2018-03-29T13:17:09Z
+      dockerImageReference: centos/httpd-24-centos7@sha256:32c9f2eee3d770e14aaea93f3f1b9c470b7fddee858b6da712285c912cd7b1d1
+      generation: 2
+      image: sha256:32c9f2eee3d770e14aaea93f3f1b9c470b7fddee858b6da712285c912cd7b1d1
+    tag: latest
+  - items:
+    - created: 2018-03-29T13:17:09Z
+      dockerImageReference: centos/httpd-24-centos7@sha256:32c9f2eee3d770e14aaea93f3f1b9c470b7fddee858b6da712285c912cd7b1d1
+      generation: 2
+      image: sha256:32c9f2eee3d770e14aaea93f3f1b9c470b7fddee858b6da712285c912cd7b1d1
+    tag: "2.4"

@@ -1,0 +1,109 @@
+apiVersion: v1
+kind: ImageStream
+metadata:
+  annotations:
+    openshift.io/display-name: PostgreSQL
+    openshift.io/image.dockerRepositoryCheck: 2018-03-29T13:17:18Z
+  creationTimestamp: 2018-03-29T13:17:06Z
+  generation: 2
+  name: postgresql
+  namespace: openshift
+  resourceVersion: "912"
+  selfLink: /oapi/v1/namespaces/openshift/imagestreams/postgresql
+  uid: 7a608385-3353-11e8-bb0f-02e58f5ddc66
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+  - annotations:
+      description: Provides a PostgreSQL 9.2 database on CentOS 7. For more information
+        about using this database image, including OpenShift considerations, see https://github.com/sclorg/postgresql-container/tree/master/9.2.
+      iconClass: icon-postgresql
+      openshift.io/display-name: PostgreSQL 9.2
+      openshift.io/provider-display-name: Red Hat, Inc.
+      tags: hidden,postgresql
+      version: "9.2"
+    from:
+      kind: DockerImage
+      name: openshift/postgresql-92-centos7:latest
+    generation: 2
+    importPolicy: {}
+    name: "9.2"
+    referencePolicy:
+      type: Source
+  - annotations:
+      description: Provides a PostgreSQL 9.4 database on CentOS 7. For more information
+        about using this database image, including OpenShift considerations, see https://github.com/sclorg/postgresql-container/tree/master/9.4.
+      iconClass: icon-postgresql
+      openshift.io/display-name: PostgreSQL 9.4
+      openshift.io/provider-display-name: Red Hat, Inc.
+      tags: postgresql
+      version: "9.4"
+    from:
+      kind: DockerImage
+      name: centos/postgresql-94-centos7:latest
+    generation: 2
+    importPolicy: {}
+    name: "9.4"
+    referencePolicy:
+      type: Source
+  - annotations:
+      description: Provides a PostgreSQL 9.5 database on CentOS 7. For more information
+        about using this database image, including OpenShift considerations, see https://github.com/sclorg/postgresql-container/tree/master/9.5.
+      iconClass: icon-postgresql
+      openshift.io/display-name: PostgreSQL 9.5
+      openshift.io/provider-display-name: Red Hat, Inc.
+      tags: postgresql
+      version: "9.5"
+    from:
+      kind: DockerImage
+      name: centos/postgresql-95-centos7:latest
+    generation: 2
+    importPolicy: {}
+    name: "9.5"
+    referencePolicy:
+      type: Source
+  - annotations:
+      description: |-
+        Provides a PostgreSQL database on CentOS 7. For more information about using this database image, including OpenShift considerations, see https://github.com/sclorg/postgresql-container/tree/master/9.5.
+
+        WARNING: By selecting this tag, your application will automatically update to use the latest version of PostgreSQL available on OpenShift, including major versions updates.
+      iconClass: icon-postgresql
+      openshift.io/display-name: PostgreSQL (Latest)
+      openshift.io/provider-display-name: Red Hat, Inc.
+      tags: postgresql
+    from:
+      kind: ImageStreamTag
+      name: "9.5"
+    generation: 1
+    importPolicy: {}
+    name: latest
+    referencePolicy:
+      type: Source
+status:
+  dockerImageRepository: docker-registry.default.svc:5000/openshift/postgresql
+  tags:
+  - items:
+    - created: 2018-03-29T13:17:18Z
+      dockerImageReference: centos/postgresql-95-centos7@sha256:9e16da4e6fd3b249128bbe549e01d538327ba158ba84a401628b1fe96287c878
+      generation: 2
+      image: sha256:9e16da4e6fd3b249128bbe549e01d538327ba158ba84a401628b1fe96287c878
+    tag: latest
+  - items:
+    - created: 2018-03-29T13:17:18Z
+      dockerImageReference: centos/postgresql-95-centos7@sha256:9e16da4e6fd3b249128bbe549e01d538327ba158ba84a401628b1fe96287c878
+      generation: 2
+      image: sha256:9e16da4e6fd3b249128bbe549e01d538327ba158ba84a401628b1fe96287c878
+    tag: "9.5"
+  - items:
+    - created: 2018-03-29T13:17:18Z
+      dockerImageReference: centos/postgresql-94-centos7@sha256:57af739295f099a9167b21a9b7f5854771466a06963d06a1529558cff7aa2687
+      generation: 2
+      image: sha256:57af739295f099a9167b21a9b7f5854771466a06963d06a1529558cff7aa2687
+    tag: "9.4"
+  - items:
+    - created: 2018-03-29T13:17:18Z
+      dockerImageReference: openshift/postgresql-92-centos7@sha256:dbd4b6fef477e49bff9703ee70d20a2c48f68023562ebecc264d0b87a7fa270e
+      generation: 2
+      image: sha256:dbd4b6fef477e49bff9703ee70d20a2c48f68023562ebecc264d0b87a7fa270e
+    tag: "9.2"

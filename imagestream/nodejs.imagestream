@@ -1,0 +1,118 @@
+apiVersion: v1
+kind: ImageStream
+metadata:
+  annotations:
+    openshift.io/display-name: Node.js
+    openshift.io/image.dockerRepositoryCheck: 2018-03-29T13:17:15Z
+  creationTimestamp: 2018-03-29T13:17:06Z
+  generation: 2
+  name: nodejs
+  namespace: openshift
+  resourceVersion: "891"
+  selfLink: /oapi/v1/namespaces/openshift/imagestreams/nodejs
+  uid: 7a59f017-3353-11e8-bb0f-02e58f5ddc66
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+  - annotations:
+      description: 'DEPRECATED: Build and run Node.js 0.10 applications on CentOS
+        7. For more information about using this builder image, including OpenShift
+        considerations, see https://github.com/sclorg/s2i-nodejs-container/blob/master/0.10/README.md.'
+      iconClass: icon-nodejs
+      openshift.io/display-name: Node.js 0.10
+      openshift.io/provider-display-name: Red Hat, Inc.
+      sampleRepo: https://github.com/openshift/nodejs-ex.git
+      supports: nodejs:0.10,nodejs:0.1,nodejs
+      tags: hidden,nodejs
+      version: "0.10"
+    from:
+      kind: DockerImage
+      name: openshift/nodejs-010-centos7:latest
+    generation: 2
+    importPolicy: {}
+    name: "0.10"
+    referencePolicy:
+      type: Source
+  - annotations:
+      description: Build and run Node.js 4 applications on CentOS 7. For more information
+        about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-nodejs-container/blob/master/4/README.md.
+      iconClass: icon-nodejs
+      openshift.io/display-name: Node.js 4
+      openshift.io/provider-display-name: Red Hat, Inc.
+      sampleRepo: https://github.com/openshift/nodejs-ex.git
+      supports: nodejs:4,nodejs
+      tags: builder,nodejs
+      version: "4"
+    from:
+      kind: DockerImage
+      name: centos/nodejs-4-centos7:latest
+    generation: 2
+    importPolicy: {}
+    name: "4"
+    referencePolicy:
+      type: Source
+  - annotations:
+      description: Build and run Node.js 6 applications on CentOS 7. For more information
+        about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-nodejs-container/blob/master/6/README.md.
+      iconClass: icon-nodejs
+      openshift.io/display-name: Node.js 6
+      openshift.io/provider-display-name: Red Hat, Inc.
+      sampleRepo: https://github.com/openshift/nodejs-ex.git
+      supports: nodejs:6,nodejs
+      tags: builder,nodejs
+      version: "6"
+    from:
+      kind: DockerImage
+      name: centos/nodejs-6-centos7:latest
+    generation: 2
+    importPolicy: {}
+    name: "6"
+    referencePolicy:
+      type: Source
+  - annotations:
+      description: |-
+        Build and run Node.js applications on CentOS 7. For more information about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-nodejs-container/blob/master/4/README.md.
+
+        WARNING: By selecting this tag, your application will automatically update to use the latest version of Node.js available on OpenShift, including major versions updates.
+      iconClass: icon-nodejs
+      openshift.io/display-name: Node.js (Latest)
+      openshift.io/provider-display-name: Red Hat, Inc.
+      sampleRepo: https://github.com/openshift/nodejs-ex.git
+      supports: nodejs
+      tags: builder,nodejs
+    from:
+      kind: ImageStreamTag
+      name: "6"
+    generation: 1
+    importPolicy: {}
+    name: latest
+    referencePolicy:
+      type: Source
+status:
+  dockerImageRepository: docker-registry.default.svc:5000/openshift/nodejs
+  tags:
+  - items:
+    - created: 2018-03-29T13:17:15Z
+      dockerImageReference: centos/nodejs-6-centos7@sha256:0ada73d623cb4f012239e6a06bb39f890a93d0f3557b90e46363bade62e5526f
+      generation: 2
+      image: sha256:0ada73d623cb4f012239e6a06bb39f890a93d0f3557b90e46363bade62e5526f
+    tag: latest
+  - items:
+    - created: 2018-03-29T13:17:15Z
+      dockerImageReference: openshift/nodejs-010-centos7@sha256:bd971b467b08b8dbbbfee26bad80dcaa0110b184e0a8dd6c1b0460a6d6f5d332
+      generation: 2
+      image: sha256:bd971b467b08b8dbbbfee26bad80dcaa0110b184e0a8dd6c1b0460a6d6f5d332
+    tag: "0.10"
+  - items:
+    - created: 2018-03-29T13:17:15Z
+      dockerImageReference: centos/nodejs-4-centos7@sha256:75d4bbad4e47afd7860b8bc00900a3e3131ef93b61de89095c4ec43fd6f1cef6
+      generation: 2
+      image: sha256:75d4bbad4e47afd7860b8bc00900a3e3131ef93b61de89095c4ec43fd6f1cef6
+    tag: "4"
+  - items:
+    - created: 2018-03-29T13:17:15Z
+      dockerImageReference: centos/nodejs-6-centos7@sha256:0ada73d623cb4f012239e6a06bb39f890a93d0f3557b90e46363bade62e5526f
+      generation: 2
+      image: sha256:0ada73d623cb4f012239e6a06bb39f890a93d0f3557b90e46363bade62e5526f
+    tag: "6"
