@@ -16,7 +16,7 @@ pipeline {
 	    steps {
 		script {
 		    openshift.withCluster() {
-                        openshift.withProject() {
+                        openshift.withProject("vr-poc") {
                             echo "Using project: ${openshift.project()}"
                         }
               }
