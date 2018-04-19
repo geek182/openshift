@@ -16,7 +16,7 @@ pipeline {
 	    steps {
 		script {
 		    openshift.withCluster() {
-                        openshift.withProject("vr-poc") {
+                        openshift.withProject() {
                             echo "Using project: ${openshift.project()}"
 			     def BuildSelector = openshift.selector( 'bc' )
 			     BuildSelector.describe()
