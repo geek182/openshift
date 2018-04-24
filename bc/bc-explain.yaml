@@ -1,0 +1,53 @@
+# i remove this file from a template so this explain ${} in some places :) if something is wrong be a nice person and tell me or push a fix  
+- apiVersion: v1
+#Declare what kind configuration
+  kind: BuildConfig
+  metadata:
+    labels:
+      application: ${APPLICATION_NAME}
+    name: ${APPLICATION_NAME}
+### SPEC ###
+#spec define all characteristics of buildconfig
+  spec:
+### OUTPUT ###
+#here after complete the container build will be push to a registry
+#in this case we use the tag latest to always replace with new one container version
+    output:
+      to:
+        kind: ImageStreamTag
+        name: ${APPLICATION_NAME}:latest
+### SOURCE ###
+#define the source of app, in this case is a git.
+#ref is can be the branch name
+#more detail -> https://docs.openshift.com/container-platform/3.6/dev_guide/builds/build_inputs.html#source-code
+    source:
+      git:
+        ref: ${SOURCE_REF}
+        uri: ${SOURCE_URL}
+      type: Git
+### STRATEGY ###
+#using "forcelPull" to always get the more update version of docker image, if not speficy will try to use a local one inside node.
+#type is source (s2i) if diff look in the url under.
+#more detail -> https://docs.openshift.com/container-platform/3.6/dev_guide/builds/build_strategies.html 
+    strategy:
+      sourceStrategy:
+        forcePull: true
+        from:
+          kind: ImageStreamTag
+          name: jboss-eap70-openshift:1.4
+          namespace: openshift
+      type: Source
+### TRIGGERS ###
+#relate to config webhook to start some action after someone push to a repo.
+#more detail -> https://docs.openshift.com/container-platform/3.6/dev_guide/builds/triggering_builds.html
+    triggers:
+    - github:
+        secret: kJZLvfQr3hZg
+      type: GitHub
+    - generic:
+        secret: kJZLvfQr3hZg
+      type: Generic
+# inside of trigger this option look for some update which could start a buildconfig.
+    - imageChange: {}
+      type: ImageChange
+    - type: ConfigChange
